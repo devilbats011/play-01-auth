@@ -1,5 +1,5 @@
 const express = require('express')
-const { User } = require('../../db/models/')
+const { User } = require('../../db/models')
 const NotFoundError = require('../../errors/not-found-error')
 
 const router = express.Router()

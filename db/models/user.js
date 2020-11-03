@@ -47,8 +47,10 @@ module.exports = (sequelize, DataTypes) => {
   }
 
   User.beforeCreate(async (user, options) => {
-    const hashedPassword = await Password.toHash(user.password)
-    user.password = hashedPassword
+    if (user.password) {
+      const hashedPassword = await Password.toHash(user.password)
+      user.password = hashedPassword
+    }
   })
 
   User.prototype.toJSON = function () {

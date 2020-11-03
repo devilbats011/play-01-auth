@@ -30,13 +30,7 @@ router.post(
     const user = await User.create({ email, password })
 
     // Generate JWT
-    const token = jwt.sign(
-      {
-        id: user.id,
-        email: user.email,
-      },
-      process.env.JWT_KEY
-    )
+    const token = JWT.generateToken(user.id, user.email)
 
     res.status(201).send({
       token,

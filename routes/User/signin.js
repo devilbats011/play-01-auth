@@ -6,6 +6,7 @@ const { User } = require('../../db/models/')
 const validateRequest = require('../../middlewares/validate-request')
 const BadRequestError = require('../../errors/bad-request-error')
 const Password = require('../../services/password')
+const JWT = require('../../services/jwt')
 
 const router = express.Router()
 
@@ -30,13 +31,7 @@ router.post(
     }
 
     // Generate JWT
-    const token = jwt.sign(
-      {
-        id: existingUser.id,
-        email: existingUser.email,
-      },
-      process.env.JWT_KEY
-    )
+    const token = JWT.generateToken(existingUser.id, existingUser.email)
 
     res.status(200).send({
       token,
