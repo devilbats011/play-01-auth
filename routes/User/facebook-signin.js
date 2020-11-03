@@ -6,6 +6,30 @@ const JWT = require('../../services/jwt')
 
 const router = express.Router()
 
+/**
+ * @swagger
+ *  /users/facebook/signin:
+ *    post:
+ *      summary: User signin via Facebook
+ *      tags: [Users]
+ *      requestBody:
+ *        required: true
+ *        content:
+ *          application/json:
+ *            schema:
+ *              $ref: '#/components/schemas/User'
+ *            example:
+ *              name: John Smith
+ *              email: johnsmith@email.com
+ *              facebookId: 9857123918028475211
+ *      responses:
+ *        "200":
+ *          description: A user schema
+ *          content:
+ *            application/json:
+ *              schema:
+ *                $ref: '#/components/schemas/User'
+ */
 router.post(
   '/facebook/signin',
   [

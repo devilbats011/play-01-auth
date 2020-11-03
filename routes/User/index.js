@@ -10,6 +10,13 @@ const update = require('./update')
 const view = require('./view')
 const viewById = require('./view-by-id')
 
+/**
+ * @swagger
+ * tags:
+ *   name: Users
+ *   description: User auth
+ */
+
 router.use(aboutme)
 router.use(facebookSignin)
 router.use(googleSignin)

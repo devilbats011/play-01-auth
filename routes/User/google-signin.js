@@ -6,6 +6,30 @@ const JWT = require('../../services/jwt')
 
 const router = express.Router()
 
+/**
+ * @swagger
+ *  /users/google/signin:
+ *    post:
+ *      summary: User signin via Google
+ *      tags: [Users]
+ *      requestBody:
+ *        required: true
+ *        content:
+ *          application/json:
+ *            schema:
+ *              $ref: '#/components/schemas/User'
+ *            example:
+ *              name: John Smith
+ *              email: johnsmith@email.com
+ *              googleId: 9857123918028475211
+ *      responses:
+ *        "200":
+ *          description: A user schema
+ *          content:
+ *            application/json:
+ *              schema:
+ *                $ref: '#/components/schemas/User'
+ */
 router.post(
   '/google/signin',
   [

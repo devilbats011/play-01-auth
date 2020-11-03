@@ -10,6 +10,25 @@ const JWT = require('../../services/jwt')
 
 const router = express.Router()
 
+/**
+ * @swagger
+ *  /users/signin:
+ *    post:
+ *      summary: User signin
+ *      tags: [Users]
+ *      requestBody:
+ *        required: true
+ *        content:
+ *          application/json:
+ *            schema:
+ *              $ref: '#/components/schemas/User'
+ *            example:
+ *              email: johnsmith@email.com
+ *              password: supersafepassword
+ *      responses:
+ *        "200":
+ *          description: A JWT token
+ */
 router.post(
   '/signin',
   [

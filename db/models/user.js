@@ -26,6 +26,9 @@ module.exports = (sequelize, DataTypes) => {
       password: {
         type: DataTypes.STRING,
       },
+      phoneNumber: {
+        type: DataTypes.STRING,
+      },
       googleId: {
         type: DataTypes.STRING,
       },
@@ -57,8 +60,37 @@ module.exports = (sequelize, DataTypes) => {
     var values = Object.assign({}, this.get())
 
     delete values.password
+    delete values.googleId
+    delete values.facebookId
+    delete values.isActive
+    delete values.deletedAt
     return values
   }
 
   return User
 }
+
+/**
+ * @swagger
+ *  components:
+ *    schemas:
+ *      User:
+ *        type: object
+ *        required:
+ *          - name
+ *          - email
+ *        properties:
+ *          name:
+ *            type: string
+ *          email:
+ *            type: string
+ *            format: email
+ *            description: Email for the user, needs to be unique.
+ *          phoneNumber:
+ *            type: string
+ *        example:
+ *           id: 93jf8rjk-12eij9a-qd123rw-12341sf
+ *           name: John Smith
+ *           email: johnsmith@email.com
+ *           phoneNumber: "01122334455"
+ */

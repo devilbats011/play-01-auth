@@ -22,7 +22,9 @@ if (process.env.NODE_ENV === 'production') {
 app.use(routes)
 
 app.get('/', (req, res) => {
-  res.send('API server is up and running...')
+  res.send(
+    'API server is up and running... <a href="/docs">Click here</a> to access the API documentations.'
+  )
 })
 
 app.all('*', async () => {
