@@ -19,6 +19,10 @@ if (process.env.NODE_ENV === 'production') {
   app.use(helmet())
 }
 
+//temporary solution -- todo: study what the use of helmet() for..
+app.use(cors())
+//--------temporary solution----------------
+
 app.use(routes)
 
 app.get('/', (req, res) => {
